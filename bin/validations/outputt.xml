@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsi:listOfElements xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance example.xsd ">
+  <List-Of-Project>
+    <Project>
+      <Nmae>Nmae</Nmae>
+      <Id>Id</Id>
+      <POC>POC</POC>
+      <priority>priority</priority>
+    </Project>
+  </List-Of-Project>
+  <Project-Jobs>
+    <JOb>
+      <ProjectID>ProjectID</ProjectID>
+      <JobId>JobId</JobId>
+      <JobName>JobName</JobName>
+      <POC>POC</POC>
+      <Priority>Priority</Priority>
+      <Technology>Technology</Technology>
+      <batchServer>batchServer</batchServer>
+      <SchediuleInterval>
+        <min>0</min>
+        <hours>0</hours>
+      </SchediuleInterval>
+      <running-interval>DAILY</running-interval>
+      <sql-success-fail>sql-success-fail</sql-success-fail>
+      <sql-run-durations>sql-run-durations</sql-run-durations>
+      <db-connection-ref>0.0</db-connection-ref>
+    </JOb>
+  </Project-Jobs>
+  <db-Details>
+    <dbconfig>
+      <coonection-ref-id>coonection-ref-id</coonection-ref-id>
+      <dbname>dbname</dbname>
+      <dbuser>dbuser</dbuser>
+      <database>ORACLE</database>
+      <databaseversion>databaseversion</databaseversion>
+    </dbconfig>
+  </db-Details>
+</xsi:listOfElements>

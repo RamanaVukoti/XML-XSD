@@ -1,0 +1,138 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.w3.org/2001/XMLSchema-instance">
+	
+	
+		<!-- <xs:element name="listOfElements" type="listOfEleme" /> -->
+	<!-- <xs:complexType name="listOfEleme">
+
+		<xs:sequence> -->
+		
+		
+		
+			<xs:element name="List-Of-Project" type="listOfProjects"
+				/>
+			<!-- <xs:element name="Project-Jobs" type="projectJobs"
+				/>-->
+			<xs:element name="db-Details" type="dbdetails" />
+			 
+			
+			
+		<!-- </xs:sequence>
+	</xs:complexType> -->
+
+
+	<xs:complexType name="listOfProjects">
+		<xs:sequence>
+			<xs:element name="Project" type="projElem" minOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="projElem">
+		<xs:sequence>
+			<xs:element name="Nmae" type="xs:string" minOccurs="1" />
+			<xs:element name="Id" type="xs:string" minOccurs="1" />
+			<xs:element name="POC" type="xs:string" minOccurs="1" />
+			<xs:element name="priority" type="xs:string" minOccurs="1" />
+		</xs:sequence>
+
+	</xs:complexType>
+
+	<xs:complexType name="projectJobs">
+		<xs:sequence>
+			<xs:element name="JOb" type="jobElem" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="jobElem">
+		<xs:sequence>
+			<xs:element name="ProjectID" type="xs:string" minOccurs="1" />
+			<xs:element name="JobId" type="xs:string" minOccurs="1" />
+			<xs:element name="JobName" type="xs:string" minOccurs="1" />
+			<xs:element name="POC" type="xs:string" minOccurs="1" />
+			<xs:element name="Priority" type="xs:string" minOccurs="1" />
+			<xs:element name="Technology" type="xs:string" minOccurs="1" />
+			<xs:element name="batchServer" type="xs:string" minOccurs="1" />
+			<xs:element name="SchediuleInterval" type="intervals"
+				minOccurs="1" />
+			<xs:element name="JobName" type="xs:string" minOccurs="0" />
+			<xs:element name="running-interval" type="runInterval"
+				minOccurs="1" />
+			<xs:element name="runsPerDay" type="runsperdayType" minOccurs="0" />
+			<xs:element name="sql-success-fail" type="xs:string"
+				minOccurs="1" />
+			<xs:element name="sql-run-durations" type="xs:string"
+				minOccurs="1" />
+			<xs:element name="db-connection-ref" type="xs:decimal"
+				minOccurs="1" />
+
+		</xs:sequence>
+
+	</xs:complexType>
+
+	<xs:complexType name="intervals">
+		<xs:sequence>
+			<xs:element name="min" type="minutesRange"></xs:element>
+			<xs:element name="hours" type="hourRange"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="minutesRange">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0" />
+			<xs:maxInclusive value="59" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="hourRange">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0" />
+			<xs:maxInclusive value="23" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="runInterval">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DAILY" />
+			<xs:enumeration value="WEEKLY" />
+			<xs:enumeration value="BI-WEEKLY" />
+			<xs:enumeration value="MONTHLY" />
+			<xs:enumeration value="YEARLY" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="runsperdayType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SINGLE" />
+			<xs:enumeration value="MULTIPLE" />
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:complexType name="dbdetails">
+
+		<xs:sequence>
+			<xs:element name="dbconfig" type="dbConfigType"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="dbConfigType">
+		<xs:sequence>
+			<xs:element name="coonection-ref-id" type="xs:string"></xs:element>
+			<xs:element name="cooneectionstring" type="xs:string"
+				minOccurs="0"></xs:element>
+			<xs:element name="dbname" type="xs:string"></xs:element>
+			<xs:element name="dbuser" type="xs:string"></xs:element>
+			<xs:element name="database" type="databaseType"></xs:element>
+			<xs:element name="databaseversion" type="xs:string"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="databaseType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ORACLE" />
+			<xs:enumeration value="MYSQL" />
+			<xs:enumeration value="SYBASE" />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

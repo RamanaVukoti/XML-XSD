@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsi:db-Details xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance example.xsd ">
+  <dbconfig>
+    <coonection-ref-id>coonection-ref-id</coonection-ref-id>
+    <cooneectionstring>cooneectionstring</cooneectionstring>
+    <dbname>dbname</dbname>
+    <dbuser>dbuser</dbuser>
+    <database>ORACLE</database>
+    <databaseversion>databaseversion</databaseversion>
+  </dbconfig>
+</xsi:db-Details>
